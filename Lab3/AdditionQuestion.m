@@ -10,10 +10,10 @@
 
 @interface AdditionQuestion()
 
-@property int numberCorrectAnswer;
-@property int numberWrongAnswer;
+@property NSInteger numberCorrectAnswer;
+@property NSInteger numberWrongAnswer;
 
-- (int) numberGenerator;
+- (NSInteger) numberGenerator;
 
 @end
 
@@ -34,19 +34,19 @@
     [self setSecondNumber: [self numberGenerator]];
     [self setAnswer: [self firstNumber] + [self secondNumber]];
     
-    NSString *question = [NSString stringWithFormat:@"%d + %d ?", [self firstNumber], [self secondNumber]];
+    NSString *question = [NSString stringWithFormat:@"%ld + %ld ?", (long)[self firstNumber], (long)[self secondNumber]];
     
     return question;
 }
 
-- (int) numberGenerator {
+- (NSInteger) numberGenerator {
     
     int numGenerated = arc4random_uniform(100);
     
     return (numGenerated >= 10) ? numGenerated : [self numberGenerator];
 }
 
-- (void) checkAnswer: (int) userAnswer {
+- (void) checkAnswer: (NSInteger) userAnswer {
     
     if ([self answer] == userAnswer) {
         NSLog(@"Right!");
@@ -61,9 +61,9 @@
 
 - (void) showScore {
     
-    int percentageCorrectAnswer = [self numberCorrectAnswer] * 100 / ([self numberCorrectAnswer] + [self numberWrongAnswer]);
+    NSInteger percentageCorrectAnswer = [self numberCorrectAnswer] * 100 / ([self numberCorrectAnswer] + [self numberWrongAnswer]);
     
-    NSLog(@"score: %d right, %d wrong ---- %d%%", [self numberCorrectAnswer], [self numberWrongAnswer], percentageCorrectAnswer);
+    NSLog(@"score: %ld right, %ld wrong ---- %ld%%", [self numberCorrectAnswer], [self numberWrongAnswer], percentageCorrectAnswer);
     
 }
 

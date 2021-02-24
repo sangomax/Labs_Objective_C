@@ -11,13 +11,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AdditionQuestion : NSObject
 
-@property int firstNumber;
-@property int secondNumber;
-@property int answer;
+@property NSInteger firstNumber;
+@property NSInteger secondNumber;
+@property NSInteger answer;
 
 - (instancetype)init;
 - (NSString *) generateRandomQuestion;
-- (void) checkAnswer: (int) userAnswer;
+- (void) checkAnswer: (NSInteger) userAnswer;
 - (void) showScore;
 
 @end
