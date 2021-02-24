@@ -92,7 +92,8 @@ void executeProgram() {
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        executeProgram();
+//        executeProgram();
+        
         
         NSLog(@"Bye");
     }
