@@ -13,7 +13,7 @@
 @property NSInteger numberCorrectAnswer;
 @property NSInteger numberWrongAnswer;
 
-- (NSInteger) numberGenerator;
+- (NSInteger) numberGenerator: (int) fromValue And: (int) toValue;
 
 @end
 
@@ -30,32 +30,63 @@
 
 - (NSString *) generateRandomQuestion {
     
-    [self setFirstNumber: [self numberGenerator]];
-    [self setSecondNumber: [self numberGenerator]];
-    [self setAnswer: [self firstNumber] + [self secondNumber]];
+    [self setFirstNumber: [self numberGenerator:10 And:100]];
+    [self setSecondNumber: [self numberGenerator:10 And:100]];
+    NSString *question = @"";
     
-    NSString *question = [NSString stringWithFormat:@"%ld + %ld ?", (long)[self firstNumber], (long)[self secondNumber]];
-    
+    switch ([self numberGenerator:0 And:3]) {
+        case 0:
+            [self setAnswer: [self firstNumber] + [self secondNumber]];
+            question = [NSString stringWithFormat:@"%ld + %ld ?", (long)[self firstNumber], (long)[self secondNumber]];
+            break;
+        case 1:
+            [self setAnswer: [self firstNumber] - [self secondNumber]];
+            question = [NSString stringWithFormat:@"%ld - %ld ?", (long)[self firstNumber], (long)[self secondNumber]];
+        case 2:
+            [self setAnswer: [self firstNumber] * [self secondNumber]];
+            question = [NSString stringWithFormat:@"%ld * %ld ?", (long)[self firstNumber], (long)[self secondNumber]];
+        case 3:
+            if ([self firstNumber] > [self secondNumber]) {
+                [self setAnswer: [self firstNumber] / [self secondNumber]];
+                question = [NSString stringWithFormat:@"%ld / %ld ?", (long)[self firstNumber], (long)[self secondNumber]];
+            } else {
+                [self setAnswer: [self secondNumber] / [self firstNumber]];
+                question = [NSString stringWithFormat:@"%ld / %ld ?", (long)[self secondNumber], (long)[self firstNumber]];
+            }
+        default:
+            break;
+    }
+
     return question;
 }
 
-- (NSInteger) numberGenerator {
+- (NSInteger) numberGenerator: (int) fromValue And: (int) toValue {
     
-    int numGenerated = arc4random_uniform(100);
+    int numGenerated = arc4random_uniform(toValue);
     
-    return (numGenerated >= 10) ? numGenerated : [self numberGenerator];
+    return (numGenerated >= fromValue) ? numGenerated : [self numberGenerator:fromValue And:toValue];
 }
 
-- (void) checkAnswer: (NSInteger) userAnswer {
+- (void) checkAnswer: (float) userAnswer {
     
-    if ([self answer] == userAnswer) {
-        NSLog(@"Right!");
+    if ([[NSString stringWithFormat: @"%.2f",[self answer]] isEqualTo: [NSString stringWithFormat: @"%.2f", userAnswer]]) {
+        NSLog(@"Right! -> %.2f", [self answer]);
         [self setNumberCorrectAnswer:[self numberCorrectAnswer] + 1];
     } else {
-        NSLog(@"Wrong!");
+        NSLog(@"Wrong! -> %.2f", [self answer]);
         [self setNumberWrongAnswer:[self numberWrongAnswer] + 1];
     }
     
+}
+
+- (void) showTimeScore: (NSTimeInterval) timeSeconds {
+    timeSeconds *= -1;
+    int hours = timeSeconds / 3600;
+    int minutes = (timeSeconds - (hours * 3600)) / 60;
+    int seconds = timeSeconds - (minutes * 60);
+    int average = timeSeconds / ([self numberCorrectAnswer] + [self numberWrongAnswer]);
+    
+    NSLog(@"Total Time: %dh %dm %ds, Average Time: %ds", hours, minutes, seconds, average);
 }
 
 

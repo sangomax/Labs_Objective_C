@@ -13,9 +13,12 @@ NSString *getUserInput(int maxLength, NSString *prompt) {
         maxLength = 255;
     }
     NSLog(@"%@ ", prompt);
+    
     char inputChars[maxLength];
     char *result = fgets(inputChars, maxLength, stdin);
     
+    fseek(stdin,0,SEEK_END);
+
     if (result != NULL) {
         
         NSString *objCString = [NSString stringWithUTF8String:inputChars];
@@ -32,15 +35,18 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"MATHS!");
         NSLog(@"Digit 'q' to quit");
+        NSDate *startTime = [NSDate new];
         while (TRUE) {
         
             NSString *userAnswer = getUserInput(5, [addition generateRandomQuestion]);
             if([userAnswer  isEqual: @"q"]) {
                 break;
             }
-            [addition checkAnswer:[userAnswer intValue]];
+            [addition checkAnswer:[userAnswer floatValue]];
             
         }
+
+        [addition showTimeScore:[startTime timeIntervalSinceNow]];
         
         [addition showScore];
         
