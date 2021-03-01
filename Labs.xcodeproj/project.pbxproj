@@ -17,6 +17,11 @@
 		14DA6B6625E8905300ECED04 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA6B6525E8905300ECED04 /* AppController.m */; };
 		14DA6B7625E89BB100ECED04 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA6B7525E89BB100ECED04 /* Contact.m */; };
 		14DA6B8225E8B39900ECED04 /* Phone.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA6B8125E8B39800ECED04 /* Phone.m */; };
+		14DA6B9225EC881800ECED04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA6B9125EC881800ECED04 /* main.m */; };
+		14DA6B9D25EC883500ECED04 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA6B9C25EC883500ECED04 /* GameController.m */; };
+		14DA6BAA25EC8B6300ECED04 /* Dice.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA6BA925EC8B6300ECED04 /* Dice.m */; };
+		14DA6BB325EC9CBD00ECED04 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA6BB225EC9CBD00ECED04 /* GameView.m */; };
+		14DA6BC825ECA05600ECED04 /* UserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA6BC625ECA05600ECED04 /* UserController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +61,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		14DA6B8D25EC881800ECED04 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +93,16 @@
 		14DA6B7525E89BB100ECED04 /* Contact.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		14DA6B8025E8B39800ECED04 /* Phone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Phone.h; sourceTree = "<group>"; };
 		14DA6B8125E8B39800ECED04 /* Phone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Phone.m; sourceTree = "<group>"; };
+		14DA6B8F25EC881800ECED04 /* Lab6 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lab6; sourceTree = BUILT_PRODUCTS_DIR; };
+		14DA6B9125EC881800ECED04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		14DA6B9B25EC883500ECED04 /* GameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		14DA6B9C25EC883500ECED04 /* GameController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
+		14DA6BA825EC8B6300ECED04 /* Dice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dice.h; sourceTree = "<group>"; };
+		14DA6BA925EC8B6300ECED04 /* Dice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dice.m; sourceTree = "<group>"; };
+		14DA6BB125EC9CBD00ECED04 /* GameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
+		14DA6BB225EC9CBD00ECED04 /* GameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		14DA6BC625ECA05600ECED04 /* UserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserController.m; sourceTree = "<group>"; };
+		14DA6BC725ECA05600ECED04 /* UserController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +134,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		14DA6B8C25EC881800ECED04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -120,6 +151,7 @@
 				148688A125E5B96E003F2D74 /* Lab2 */,
 				14385D9525E60F0E005CE1DC /* Lab3 */,
 				14DA6B5325E88E2F00ECED04 /* Lab4 */,
+				14DA6B9025EC881800ECED04 /* Lab6 */,
 				1414209A25E4AA7200574CB9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,6 +163,7 @@
 				148688A025E5B96E003F2D74 /* Lab2 */,
 				14385D9425E60F0E005CE1DC /* Lab3 */,
 				14DA6B5225E88E2F00ECED04 /* Lab4 */,
+				14DA6B8F25EC881800ECED04 /* Lab6 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,6 +210,22 @@
 				14DA6B8125E8B39800ECED04 /* Phone.m */,
 			);
 			path = Lab4;
+			sourceTree = "<group>";
+		};
+		14DA6B9025EC881800ECED04 /* Lab6 */ = {
+			isa = PBXGroup;
+			children = (
+				14DA6B9125EC881800ECED04 /* main.m */,
+				14DA6BA825EC8B6300ECED04 /* Dice.h */,
+				14DA6BA925EC8B6300ECED04 /* Dice.m */,
+				14DA6B9B25EC883500ECED04 /* GameController.h */,
+				14DA6B9C25EC883500ECED04 /* GameController.m */,
+				14DA6BB125EC9CBD00ECED04 /* GameView.h */,
+				14DA6BB225EC9CBD00ECED04 /* GameView.m */,
+				14DA6BC725ECA05600ECED04 /* UserController.h */,
+				14DA6BC625ECA05600ECED04 /* UserController.m */,
+			);
+			path = Lab6;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +299,23 @@
 			productReference = 14DA6B5225E88E2F00ECED04 /* Lab4 */;
 			productType = "com.apple.product-type.tool";
 		};
+		14DA6B8E25EC881800ECED04 /* Lab6 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14DA6B9525EC881800ECED04 /* Build configuration list for PBXNativeTarget "Lab6" */;
+			buildPhases = (
+				14DA6B8B25EC881800ECED04 /* Sources */,
+				14DA6B8C25EC881800ECED04 /* Frameworks */,
+				14DA6B8D25EC881800ECED04 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lab6;
+			productName = Lab6;
+			productReference = 14DA6B8F25EC881800ECED04 /* Lab6 */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -268,6 +334,9 @@
 						CreatedOnToolsVersion = 12.4;
 					};
 					14DA6B5125E88E2F00ECED04 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					14DA6B8E25EC881800ECED04 = {
 						CreatedOnToolsVersion = 12.4;
 					};
 				};
@@ -289,6 +358,7 @@
 				1486889F25E5B96E003F2D74 /* Lab2 */,
 				14385D9325E60F0E005CE1DC /* Lab3 */,
 				14DA6B5125E88E2F00ECED04 /* Lab4 */,
+				14DA6B8E25EC881800ECED04 /* Lab6 */,
 			);
 		};
 /* End PBXProject section */
@@ -329,6 +399,18 @@
 				14DA6B6625E8905300ECED04 /* AppController.m in Sources */,
 				14DA6B5525E88E2F00ECED04 /* main.m in Sources */,
 				14DA6B8225E8B39900ECED04 /* Phone.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14DA6B8B25EC881800ECED04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14DA6BAA25EC8B6300ECED04 /* Dice.m in Sources */,
+				14DA6B9D25EC883500ECED04 /* GameController.m in Sources */,
+				14DA6BC825ECA05600ECED04 /* UserController.m in Sources */,
+				14DA6BB325EC9CBD00ECED04 /* GameView.m in Sources */,
+				14DA6B9225EC881800ECED04 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +608,26 @@
 			};
 			name = Release;
 		};
+		14DA6B9325EC881800ECED04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2RYK4AKN5Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		14DA6B9425EC881800ECED04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2RYK4AKN5Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -570,6 +672,15 @@
 			buildConfigurations = (
 				14DA6B5625E88E2F00ECED04 /* Debug */,
 				14DA6B5725E88E2F00ECED04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14DA6B9525EC881800ECED04 /* Build configuration list for PBXNativeTarget "Lab6" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14DA6B9325EC881800ECED04 /* Debug */,
+				14DA6B9425EC881800ECED04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
