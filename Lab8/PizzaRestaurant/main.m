@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 #import "Kitchen.h"
-
+#import "ManagerKitchenOne.h"
+#import "ManagerKitchenTwo.h"
+#import "NoManagerKitchen.h"
 
 int main(int argc, const char * argv[])
 {
@@ -23,14 +25,17 @@ int main(int argc, const char * argv[])
         NSLog(@"Please pick your pizza size and toppings:");
         
         Kitchen *restaurantKitchen = [Kitchen new];
-        
+        Pizza *pizza = [Pizza new];
+        ManagerKitchenOne *manager1;
+        ManagerKitchenTwo *manager2;
+        NoManagerKitchen *noManager;
         while (TRUE) {
             // Loop forever
             
             NSLog(@"> ");
             char str[100];
             fgets (str, 100, stdin);
-            
+            fseek(stdin,0,SEEK_END);
             NSString *inputString = [[NSString alloc] initWithUTF8String:str];
             inputString = [inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             
@@ -44,9 +49,30 @@ int main(int argc, const char * argv[])
                     [toppings addObject:commandWords[i]];
                 }
             }
-            // And then send some message to the kitchen...
-            Pizza *pizza = [Pizza new];
             
+            // And then send some message to the kitchen...
+            
+            NSLog(@"Choose a manager by typing 1 or 2 or anything for no manager:");
+            fgets (str, 100, stdin);
+            NSString *inputManager = [[NSString alloc] initWithUTF8String:str];
+            inputManager = [inputManager stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            
+            if ([inputManager intValue] == 1) {
+                if(!manager1) {
+                    manager1 = [ManagerKitchenOne new];
+                }
+                [restaurantKitchen setDelegate: manager1];
+            } else if ([inputManager intValue] == 2) {
+                if(!manager2) {
+                    manager2 = [ManagerKitchenTwo new];
+                }
+                [restaurantKitchen setDelegate:manager2];
+            } else {
+                if(!noManager) {
+                    noManager = [NoManagerKitchen new];
+                }
+                [restaurantKitchen setDelegate:noManager];
+            }
             
             if([commandWords[0] isEqual: @"small"]) {
                 pizza = [restaurantKitchen makePizzaWithSize: (PizzaSize) small toppings:toppings];
@@ -55,9 +81,9 @@ int main(int argc, const char * argv[])
             } else if([commandWords[0] isEqual: @"large"]) {
                 pizza =  [restaurantKitchen makePizzaWithSize: (PizzaSize) large toppings:toppings];
             } else if([commandWords[0] isEqual: @"Pepperoni"]) {
-                pizza = [Kitchen largePepperoni];
+                pizza = [Pizza largePepperoni];
             } else if([commandWords[0] isEqual: @"lonelyCheese"]) {
-                pizza = [Kitchen lonelyCheese];
+                pizza = [Pizza lonelyCheese];
             } else {
                 NSLog(@"Order invalid");
                 continue;

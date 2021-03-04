@@ -12,19 +12,32 @@
 
 - (Pizza *)makePizzaWithSize:(PizzaSize) size toppings:(NSArray *)toppings
 {
-    return [[Pizza alloc] initWithSize:size andToppings:toppings];
+    Pizza *pizza = nil;
+    
+    if ([_delegate kitchen:self shouldMakePizzaOfSize:size andToppings:toppings]) {
+        
+        if([_delegate kitchenShouldUpgradeOrder:self]) {
+            
+            size = 2;
+            
+        }
+        
+        pizza = [[Pizza alloc] initWithSize:size andToppings:toppings];
+        
+    }
+    
+    if([_delegate respondsToSelector:@selector(kitchenDidMakePizza:)]) {
+        [_delegate kitchenDidMakePizza:pizza];
+    }
+    
+    return pizza;
+    
 }
 
-+ (Pizza *)largePepperoni{
-    NSArray *toppings = @[@"Pepperoni"];
-    PizzaSize size = (PizzaSize) 2;
-    return [[Pizza alloc] initWithSize: size andToppings:toppings];
-}
 
-+ (Pizza *)lonelyCheese{
-    NSArray *toppings = @[@"Cheese"];
-    PizzaSize size = (PizzaSize) 0;
-    return [[Pizza alloc] initWithSize: size andToppings:toppings];
-}
+
+
+
+
 
 @end

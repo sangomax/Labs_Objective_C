@@ -61,4 +61,17 @@ typedef NS_ENUM(int, PizzaSize) {
     return @"";
 }
 
+
++ (Pizza *)largePepperoni{
+    NSArray *toppings = @[@"Pepperoni"];
+    PizzaSize size = (PizzaSize) 2;
+    return [[Pizza alloc] initWithSize: size andToppings:toppings];
+}
+
++ (Pizza *)lonelyCheese{
+    NSArray *toppings = @[@"Cheese"];
+    PizzaSize size = (PizzaSize) 0;
+    return [[Pizza alloc] initWithSize: size andToppings:toppings];
+}
+
 @end
