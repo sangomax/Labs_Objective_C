@@ -12,7 +12,7 @@
 #import "ManagerKitchenOne.h"
 #import "ManagerKitchenTwo.h"
 #import "NoManagerKitchen.h"
-
+#import "DeliveryService.h"
 int main(int argc, const char * argv[])
 {
     
@@ -29,6 +29,8 @@ int main(int argc, const char * argv[])
         ManagerKitchenOne *manager1;
         ManagerKitchenTwo *manager2;
         NoManagerKitchen *noManager;
+        DeliveryService *deliveryService = [DeliveryService new];
+        
         while (TRUE) {
             // Loop forever
             
@@ -61,10 +63,11 @@ int main(int argc, const char * argv[])
                 if(!manager1) {
                     manager1 = [ManagerKitchenOne new];
                 }
+                
                 [restaurantKitchen setDelegate: manager1];
             } else if ([inputManager intValue] == 2) {
                 if(!manager2) {
-                    manager2 = [ManagerKitchenTwo new];
+                    manager2 = [[ManagerKitchenTwo alloc] init:deliveryService];
                 }
                 [restaurantKitchen setDelegate:manager2];
             } else {
@@ -73,16 +76,16 @@ int main(int argc, const char * argv[])
                 }
                 [restaurantKitchen setDelegate:noManager];
             }
-            
-            if([commandWords[0] isEqual: @"small"]) {
+
+            if([[commandWords[0] lowercaseString] isEqual: @"small"]) {
                 pizza = [restaurantKitchen makePizzaWithSize: (PizzaSize) small toppings:toppings];
-            } else if([commandWords[0] isEqual: @"medium"]) {
+            } else if([[commandWords[0] lowercaseString] isEqual: @"medium"]) {
                 pizza = [restaurantKitchen makePizzaWithSize: (PizzaSize) medium toppings:toppings];
-            } else if([commandWords[0] isEqual: @"large"]) {
+            } else if([[commandWords[0] lowercaseString] isEqual: @"large"]) {
                 pizza =  [restaurantKitchen makePizzaWithSize: (PizzaSize) large toppings:toppings];
-            } else if([commandWords[0] isEqual: @"Pepperoni"]) {
+            } else if([[commandWords[0] lowercaseString] isEqual: @"pepperoni"]) {
                 pizza = [Pizza largePepperoni];
-            } else if([commandWords[0] isEqual: @"lonelyCheese"]) {
+            } else if([[commandWords[0] lowercaseString] isEqual: @"lonelyCheese"]) {
                 pizza = [Pizza lonelyCheese];
             } else {
                 NSLog(@"Order invalid");
@@ -90,8 +93,9 @@ int main(int argc, const char * argv[])
             }
             
             
-            NSLog(@"%@", pizza.description);
-            
+            for (NSString *item in [[manager2 deliveryService] allPizzasDelivered]) {
+                NSLog(@"%@", item);
+            }
         }
         
     }

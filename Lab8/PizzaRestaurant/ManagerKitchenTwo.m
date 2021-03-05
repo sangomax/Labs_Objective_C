@@ -7,8 +7,16 @@
 //
 
 #import "ManagerKitchenTwo.h"
+#import "DeliveryService.h"
 
 @implementation ManagerKitchenTwo
+
+- (instancetype)init: (DeliveryService *) service {
+    if (self = [super init]) {
+        _deliveryService = service;
+    }
+    return self;
+}
 
 - (BOOL)kitchen:(Kitchen *)kitchen shouldMakePizzaOfSize:(PizzaSize)size andToppings:(NSArray *)toppings {
     return true;
@@ -20,7 +28,7 @@
 
 - (void)kitchenDidMakePizza:(Pizza *)pizza {
     
-    NSLog(@"Have a good day");
+    [_deliveryService deliverPizza:pizza];
     
 }
 

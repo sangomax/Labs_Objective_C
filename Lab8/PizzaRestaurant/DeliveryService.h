@@ -1,5 +1,5 @@
 //
-//  ManagerKitchenTwo.h
+//  DeliveryService.h
 //  PizzaRestaurant
 //
 //  Created by Adriano Gaiotto de Oliveira on 2021-03-04.
@@ -7,15 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Kitchen.h"
-#import "DeliveryService.h"
+#import "Pizza.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ManagerKitchenTwo : NSObject <KitchenDelegate>
+@interface DeliveryService : NSObject
 
-@property DeliveryService *deliveryService;
+@property NSMutableArray *pizzasDelivered;
 
-- (instancetype)init: (DeliveryService *) service;
+- (instancetype)init;
+
+- (void) deliverPizza:(Pizza *)pizza;
+
+- (NSMutableArray *) allPizzasDelivered;
 
 @end
 
